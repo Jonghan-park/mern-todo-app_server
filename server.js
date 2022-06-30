@@ -30,4 +30,19 @@ app.post('/todo/new', (req, res) => {
   res.json(todo);
 })
 
+app.delete('/todo/delete/:unique_identifier', async (req, res) => {
+  const result = await Todo.findByIdAndDelete(req.params.unique_identifier)
+
+  res.json(result);
+})
+
+app.put('/todo/complete/:id', async (req, res) => {
+  const todo = await Todo.findById(req.params.id)
+
+  todo.complete = !todo.complete;
+  todo.save();
+  
+  res.json(todo);
+})
+
 app.listen(port, () => console.log("Server started on port 5000"))

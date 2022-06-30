@@ -8,3 +8,9 @@ Content-Type: application/json
 {
   "text": "Order pizza"
 }
+###
+DELETE http://localhost:5000/todo/delete/62bddb0571e2b906f4f887c2
+
+###
+
+PUT http://localhost:5000/todo/complete/62bddad671e2b906f4f887bf
